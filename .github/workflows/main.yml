@@ -6,6 +6,7 @@ on:
     branches:
       - 'release-*'
       - 'cyb-34/github-actions-ml-pipeline'
+      - 'cyb-32/python-ml-training'
 
 jobs:
   ml-generator:

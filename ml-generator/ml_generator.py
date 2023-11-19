@@ -40,7 +40,7 @@ def load_dataframe(file = 'processed_dataset.csv'):
   tweeter_df = pd.read_csv(file)
   print(tweeter_df.head(5))
 
-def train_test_data_split(ctest_size=0.15, crandom_state=50):
+def train_test_data_split(ctest_size=0.20, crandom_state=50):
   global X, y, X_train, X_test, y_train, y_test, tweeter_df
   # Identify predictor and target features
   X = tweeter_df['clean_text']
