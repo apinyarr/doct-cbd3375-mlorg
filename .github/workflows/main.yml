@@ -1,0 +1,33 @@
+---
+name: Data Processing
+
+on:
+  push:
+    branches:
+      - 'release-*'
+      - 'cyb-34/github-actions-ml-pipeline'
+
+jobs:
+  ml-generator:
+
+    permissions:
+      contents: 'read'
+
+    runs-on: 
+      group: Default
+      labels: linux-uat-1
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8.x'
+
+      - name: Install Python Requirement
+        run: pip install -r ml-generator/requirements.txt
+
+      - name: Execute ML Generator Code
+        run: python3 ml-generator/ml_generator.py
